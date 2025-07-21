@@ -1,0 +1,12 @@
+/*-- scss:defaults --*/
+$web-font-path: false;  // disable Google Fonts
+
+/*-- scss:rules --*/
+
+.navbar-logo {
+  max-height: 80px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 40px;
+  background-color: white;
+}
