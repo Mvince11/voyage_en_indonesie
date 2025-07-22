@@ -3,10 +3,74 @@ $web-font-path: false;  // disable Google Fonts
 
 /*-- scss:rules --*/
 
-.navbar-logo {
-  max-height: 80px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 40px;
+
+/* Conteneur du logo : pas plus haut que la navbar */
+.navbar-brand {
+  height: 80px; /* ou selon la hauteur cible de ta navbar */
+  overflow: visible; /* pour autoriser le débordement */
+}
+
+/* Image du logo : agrandie visuellement sans impacter la hauteur de la navbar */
+.navbar-brand img {
+  height: 106px; /* taille visuelle désirée */
+  width: auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  padding-left: 20px;
+  padding-right: 20px;
   background-color: white;
+  border-radius: 60px;
+  border-bottom-width: 1px;
+  border-color: rgba(101, 147, 220, 0.5);
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 1px;
+  box-shadow: rgba(101, 147, 220, 0.2) 0px 4px 8px 0px;
+  opacity: 1;
+}
+
+.navbar-logo {
+  padding-right: 50px;
+  max-height: inherit;
+}
+
+.navbar-brand.navbar-brand-logo{
+  margin-right: 60px;
+}
+
+/*-- MAP LIBRE --*/
+
+.map-container { 
+    height: 72vh; 
+    width: 100%; /* 100% de la largeur de l'écran */
+}
+
+.mapFondDePlan {
+    position: absolute;
+    top: 10px;
+    left: 55px;
+    /* width: 180px; */
+    background-color: rgba(255, 255, 255, 0.8); 
+    color: #000000;
+    font: 13px/20px "Helvetica Neue", Arial, Helvetica, sans-serif;
+    padding: 10px;
+    z-index: 1000;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+#img_group_1{
+  border-radius: 50px;
+  border: 1px solid;
+  padding: 10px;
+  border-bottom-width: 1px;
+  border-color: rgba(101, 147, 220, 0.5);
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 1px;
+  box-shadow: rgba(101, 147, 220, 0.2) 0px 4px 8px 0px;
+  opacity: 1;
 }

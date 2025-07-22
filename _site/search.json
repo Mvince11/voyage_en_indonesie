@@ -4,6 +4,27 @@
     "href": "index.html",
     "title": "",
     "section": "",
-    "text": "L’Indonésie, en forme longue la république d’Indonésie (en indonésien Indonesia et Republik Indonesia) est un pays transcontinental situé principalement en Asie du Sud-Est, avec certaines parties de son territoire s’étendant en Océanie. Avec 17 000 îles, dont 922 habitées, il s’agit du plus grand archipel au monde. Dotée d’une population estimée à 285 millions de personnes, composée de plus de 600 groupes ethniques et parlant plus de 700 langues régionales, c’est le quatrième pays le plus peuplé au monde et le premier pays à majorité musulmane pour le nombre de croyants. Java, l’île la plus peuplée du monde, abrite plus de la moitié de la population du pays. L’Indonésie est une république dont la capitale est Jakarta. Une nouvelle capitale, nommée Nusantara, est en cours de développement pour la remplacer.\n\n\n\n\n Back to top"
+    "text": "Indonésie | Itinéraire de 3 semaines entre Java, Bali, Nusa Lembagan et Nusa Ceningan\n\n\n\nL’Indonésie est un pays transcontinental situé principalement en Asie du Sud-Est, avec certaines parties de son territoire s’étendant en Océanie. Avec 17 000 îles, dont 922 habitées, il s’agit du plus grand archipel au monde. Dotée d’une population estimée à 285 millions de personnes, composée de plus de 600 groupes ethniques et parlant plus de 700 langues régionales, c’est le quatrième pays le plus peuplé au monde et le premier pays à majorité musulmane pour le nombre de croyants. Java, l’île la plus peuplée du monde, abrite plus de la moitié de la population du pays. L’Indonésie est une république dont la capitale est Jakarta. Une nouvelle capitale, nommée Nusantara, est en cours de développement pour la remplacer.   Voilà deux ans que nous souhaitions partir en Indonésie. 2 familles, 8 personnes. C’est chose faite.\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "carte_interactive.html",
+    "href": "carte_interactive.html",
+    "title": "Carte Intercative",
+    "section": "",
+    "text": "Nombre de personnes occupant des bâtiments (logements et activités) de plain-pied fortement inondables (plus de 1,5 m d’eau) \n \n\n Le niveau des eaux peut monter relativement vite pour piéger des personnes dans des locaux ne disposant pas d’un accès vers un étage refuge. Dans les locaux où la hauteur d’eau peut être importante (supérieure à 1,5m), cela représente un danger. \n\n\n Télécharger la fiche indicateur et la carte \n\n\n\nLa zone inondable correspond à l'aléa centennal construit à partir des données disponibles et notamment réglementaires mais en aucun cas ne se substitue aux documents réglementaires en vigueur."
+  },
+  {
+    "objectID": "carte_interactive.html#section",
+    "href": "carte_interactive.html#section",
+    "title": "Carte Intercative",
+    "section": "",
+    "text": "Nombre de personnes occupant des bâtiments (logements et activités) de plain-pied fortement inondables (plus de 1,5 m d’eau) \n \n\n Le niveau des eaux peut monter relativement vite pour piéger des personnes dans des locaux ne disposant pas d’un accès vers un étage refuge. Dans les locaux où la hauteur d’eau peut être importante (supérieure à 1,5m), cela représente un danger. \n\n\n Télécharger la fiche indicateur et la carte \n\n\n\nLa zone inondable correspond à l'aléa centennal construit à partir des données disponibles et notamment réglementaires mais en aucun cas ne se substitue aux documents réglementaires en vigueur."
+  },
+  {
+    "objectID": "carte_interactive.html#row",
+    "href": "carte_interactive.html#row",
+    "title": "Carte Intercative",
+    "section": "Row",
+    "text": "Row\n\nmaplibregl = await require(\"https://cdn.jsdelivr.net/npm/maplibre-gl@2.4.0/dist/maplibre-gl.min.js\")\n\nmap = {\n  const container = html`&lt;div style=\"height: 690px; width: 100%\"&gt;&lt;/div&gt;`;\n  yield container;\n\n  const map = new maplibregl.Map({\n    container: container,\n    style: 'https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json'\n  });\n\n  map.fitBounds(\n  [\n    [94.0, -11.0],  // Sud-ouest Indonésie\n    [141.0, 6.5]    // Nord-est Indonésie\n  ],\n  { padding: 20, duration: 0 }\n);\n\n  map.addControl(new maplibregl.FullscreenControl(), 'top-right');\n  map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), 'top-left');\n  map.addControl(new maplibregl.ScaleControl({ maxWidth: 80, unit: 'metric' }));\n}"
   }
 ]

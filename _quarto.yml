@@ -7,11 +7,12 @@ website:
   navbar:
     logo: "images/logos/indonesie.png"
     logo-alt: "Indonésie"
+    logo-id: "indonesie"
     left:
       - href: index.qmd
         icon: house
         text: Accueil
-      - href: cartes.qmd
+      - href: carte_interactive.qmd
         icon: map
         text: Cartes
       - about.qmd
@@ -33,6 +34,9 @@ format:
     toc-title: Contenu
     toc-location: left
     toc-depth: 2
+    sidebar:
+        contents: auto
+      
 
 editor: visual
 
