@@ -7,7 +7,9 @@ format:
     sidebar: false
 ---
 
-<!-- Dans le <head> --> <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<!-- Dans le <head> -->
+
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <!-- Avant la balise </body> -->
 
@@ -22,16 +24,15 @@ format:
 ```
 
 ::: {data-aos="fade-right" data-aos-offset="100" data-aos-easing="ease-in-sine" data-aos-duration="1000" data-aos-delay="300" style="margin-left:10%; margin-right:10%; display:flex; justify-content:center;"}
-<img src="images/IMG-index_1.jpg" id="img_group_1">
+<img src="images/IMG-index_1.jpg" id="img_group_1"/>
 :::
 
 ::: {data-aos="fade-right" data-aos-offset="100" data-aos-easing="ease-in-sine" data-aos-duration="1000" data-aos-delay="300" style="margin-left:10%; margin-right:10%; display:flex; justify-content:left; font-size:1.4em; color:brown;font-family: Oswald,sans-serif;"}
-Indonésie | Itinéraire de 3 semaines entre Java, Bali, Nusa Lembagan et Nusa Ceningan
+Indonésie \| Itinéraire de 3 semaines entre Java, Bali, Nusa Lembagan et Nusa Ceningan
 :::
+
 <hr style="margin-left:10%; margin-right:10%;">
+
 ::: {data-aos="fade-left" data-aos-offset="100" data-aos-easing="ease-in-sine" data-aos-duration="1000" data-aos-delay="300" style="margin-left:10%; margin-right:10%;font-family: Merriweather,serif;font-size:1.1em;color:#404040;"}
-L'Indonésie est un pays transcontinental situé principalement en Asie du Sud-Est, avec certaines parties de son territoire s’étendant en Océanie. Avec 17 000 îles, dont 922 habitées, il s'agit du plus grand archipel au monde. Dotée d’une population estimée à 285 millions de personnes, composée de plus de 600 groupes ethniques et parlant plus de 700 langues régionales, c'est le quatrième pays le plus peuplé au monde et le premier pays à majorité musulmane pour le nombre de croyants. Java, l’île la plus peuplée du monde, abrite plus de la moitié de la population du pays. L'Indonésie est une république dont la capitale est Jakarta. Une nouvelle capitale, nommée Nusantara, est en cours de développement pour la remplacer.
-<br>
-<br>
-Voilà deux ans que nous souhaitions partir en Indonésie. 2 familles, 8 personnes. C'est chose faite.
+L'Indonésie est un pays transcontinental situé principalement en Asie du Sud-Est, avec certaines parties de son territoire s’étendant en Océanie. Avec 17 000 îles, dont 922 habitées, il s'agit du plus grand archipel au monde. Dotée d’une population estimée à 285 millions de personnes, composée de plus de 600 groupes ethniques et parlant plus de 700 langues régionales, c'est le quatrième pays le plus peuplé au monde et le premier pays à majorité musulmane pour le nombre de croyants. Java, l’île la plus peuplée du monde, abrite plus de la moitié de la population du pays. L'Indonésie est une république dont la capitale est Jakarta. Une nouvelle capitale, nommée Nusantara, est en cours de développement pour la remplacer. <br> <br> Voilà deux ans que nous souhaitions partir en Indonésie. 2 familles, 8 personnes. C'est chose faite.
 :::

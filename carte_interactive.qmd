@@ -22,10 +22,7 @@ include-in-header:
     <script src="js/photon-geocoder-autocomplete.min.js" type="text/javascript"></script>
 ---
 
- 
-```{=html}
 <link href="https://cdn.jsdelivr.net/npm/maplibre-gl@2.4.0/dist/maplibre-gl.min.css" rel="stylesheet">
-```
 
 # Cartographie {height="100%" width="100%"}
 
@@ -145,6 +142,31 @@ map = {
       e.stopPropagation();
       toggleStyle(this.checked);
     });
+    
+    // 🔧 Création d’un élément HTML pour le marqueur personnalisé
+    const el = document.createElement('div');
+    el.className = 'custom-marker';
+    el.style.width = '48px';
+    el.style.height = '48px';
+    el.style.borderRadius = '50%';
+    el.style.overflow = 'hidden';
+    el.style.border = '2px solid white';
+    el.style.boxShadow = '0 0 6px rgba(0,0,0,0.6)';
+    el.style.backgroundColor = '#ccc';
+
+    // Création de l'image à l'intérieur du div
+    const img = document.createElement('img');
+    img.src = './images/aeroport_jakarta.png';
+    img.style.width = '100%';
+    img.style.height = '100%';
+    img.style.objectFit = 'cover';
+
+    el.appendChild(img); // Ajoute l’image dans le marqueur
+    
+    new maplibregl.Marker({ element: el }) // tu peux personnaliser la couleur ici
+  .setLngLat([106.7923764, -6.1797874]) // coordonnées de Jakarta : [longitude, latitude]
+  .setPopup(new maplibregl.Popup({ offset: 25 }).setText('Jakarta aéroport')) // optionnel : popup
+  .addTo(map);
 
   });
 
@@ -156,7 +178,7 @@ map = {
 
 ```
 
-# {.sidebar}
+#  {.sidebar}
 
 ```{=html}
 <div style="color:#dc7633; text-align:inherit !important; font-size:1.3em; font-weight:bold; font-family: calibri;margin-bottom:10%;">
@@ -173,4 +195,3 @@ map = {
 La zone inondable correspond à l'aléa centennal construit à partir des données disponibles et notamment réglementaires mais en aucun cas ne se substitue aux documents réglementaires en vigueur.
 </div>
 ```
-
