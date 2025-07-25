@@ -15,7 +15,8 @@ website:
       - href: carte_interactive.qmd
         icon: map
         text: Cartes
-      - about.qmd
+      - text: Photos
+        icon: camera
   page-footer:
     left: "Site créé avec [Quarto](https://quarto.org/)"
     #center: "©CEREMA"

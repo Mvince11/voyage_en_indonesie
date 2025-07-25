@@ -7,6 +7,7 @@ format:
     orientation: columns
     #page-layout: full
     sidebar-width: 35%
+    expandable: true
     
 resources:
   - Images/icons/*.svg
@@ -36,7 +37,7 @@ maplibregl = await require("https://cdn.jsdelivr.net/npm/maplibre-gl@2.4.0/dist/
 
 map = {
   const container = html` <div style="width: 100%; display: flex;">
-    <div id="map-container" style="flex: 2; height: 680px;"></div>
+    <div id="map-container" style="flex: 2; height: 672px;"></div>
   </div>`;
   yield container;
 
@@ -154,7 +155,11 @@ map = {
         image: 'images/aeroport_jakarta.png',
         description: 'Capitale de l’Indonésie.',
         arrivee: 'Arrivée le 28/06/2025',
-        depart: null
+        depart: null,
+        commentaire:"Avant d'arriver à CGK (aéroport de Jakarta), escale à Singapour. 13h de vol après un réveil     matinal pour rallier Toulouse à Barcelone. A peine arrivée à Jakarta, départ pour Bandung en mini van équipé d'un karaoké que l'on n'a pas utilisé durant le trajet. Tout le monde dort.",
+        photo1:  'images/jakarta_01.jpg',
+        photo2:  'images/jakarta_02.jpg',
+        photo3:  'images/jakarta_03.jpg'
       },
       {
         coords: [107.609810, -6.914744], // Bandung
@@ -162,7 +167,11 @@ map = {
         image: 'images/bandung_popup.jpg',
         description: 'Ville universitaire entourée de volcans.',
         arrivee: 'Arrivée le 28/06/2025',
-        depart: 'Départ le 30/06/2025'
+        depart: 'Départ le 30/06/2025',
+        commentaire:"Avant d'arriver à CGK (aéroport de Jakarta), escale à Singapour. 13h de vol après un réveil     matinal pour rallier Toulouse à Barcelone. A peine arrivée à Jakarta, départ pour Bandung en mini van équipé d'un karaoké que l'on n'a pas utilisé durant le trajet. Tout le monde dort.",
+        photo1:  'images/jakarta_01.jpg',
+        photo2:  'images/jakarta_02.jpg',
+        photo3:  'images/jakarta_03.jpg'
       },
       {
         coords: [110.3695, -7.7956], // Yogyakarta
@@ -170,7 +179,11 @@ map = {
         image: 'images/Yogyakarta.jpg',
         description: "La ville est connue comme centre de l'art classique javanais et de la culture traditionnelle.",
         arrivee: 'Arrivée le 30/06/2025',
-        depart: 'Départ le 03/07/2025'
+        depart: 'Départ le 03/07/2025',
+        commentaire:"Avant d'arriver à CGK (aéroport de Jakarta), escale à Singapour. 13h de vol après un réveil     matinal pour rallier Toulouse à Barcelone. A peine arrivée à Jakarta, départ pour Bandung en mini van équipé d'un karaoké que l'on n'a pas utilisé durant le trajet. Tout le monde dort.",
+        photo1:  'images/jakarta_01.jpg',
+        photo2:  'images/jakarta_02.jpg',
+        photo3:  'images/jakarta_03.jpg'
       }
     ];
     
@@ -207,13 +220,16 @@ map = {
     
     // Ajoute un gestionnaire de clic au marqueur
       el.addEventListener('click', () => {
-        const sidebar = document.getElementById('sidebar-content');
+        const sidebar = document.getElementById('sidebar-first');
         sidebar.innerHTML = `
           <h4 style="margin-top: 0;">${m.title}</h4>
-          <img src="${m.image}" alt="${m.title}" style="width: 100%; border-radius: 10px; margin: 10px 0;">
+          <img src="${m.photo1}" alt="${m.title}" style="width: 100%; border-radius: 10px; margin: 10px 0;">
           <p>${m.description}</p>
           ${m.arrivee ? `<p><strong>${m.arrivee}</strong></p>` : ''}
           ${m.depart ? `<p><strong>${m.depart}</strong></p>` : ''}
+          ${m.commentaire ? `<p style="margin-top: 15px; font-style: italic; color: #555;">📝 ${m.commentaire}</p>` : ''}
+          <img src="${m.photo2}" alt="${m.title}" style="width: 100%; border-radius: 10px; margin: 10px 0;">
+          <img src="${m.photo3}" alt="${m.title}" style="width: 100%; border-radius: 10px; margin: 10px 0;">
         `;
       });
     
@@ -266,10 +282,11 @@ map = {
 
 ```
 
-#  {.sidebar column-width="40%"}
+#  {.sidebar}
 
 ```{=html}
-<div id="sidebar" style=""width: 40%; top: 20px; right: 20px; width: 300px; background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); z-index: 1000; font-family: sans-serif;">
+<div id="sidebar-first" style="width: 100%; margin-top: 20px; right: 20px; background: #b1c6dd; padding: 15px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); z-index: 1000; font-family: sans-serif;">
+<div id="sidebar">
 <div style="width: auto; padding:5px; border: 1px solid #A0A0A0; border-radius:15px; text-align: center !important; background: #F2F2F2; font-size:1.1em;margin-top:10%;">
 Cette carte permet de visualiser les étapes de notre périple mais aussi d'avoir les informations relatives à nos visistes. 
 </div>
@@ -279,5 +296,5 @@ Cette carte permet de visualiser les étapes de notre périple mais aussi d'avoi
     Cliquez sur un marqueur pour voir les infos ici.
   </div>
 </div>
-
+</div>
 ```
