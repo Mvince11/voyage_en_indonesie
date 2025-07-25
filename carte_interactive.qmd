@@ -6,6 +6,7 @@ format:
   dashboard:
     orientation: columns
     #page-layout: full
+    sidebar-width: 35%
     
 resources:
   - Images/icons/*.svg
@@ -24,7 +25,7 @@ include-in-header:
 
 <link href="https://cdn.jsdelivr.net/npm/maplibre-gl@2.4.0/dist/maplibre-gl.min.css" rel="stylesheet">
 
-# Cartographie {height="100%" width="100%"}
+# Cartographie
 
 ```{ojs}
 //| echo: false
@@ -34,11 +35,13 @@ include-in-header:
 maplibregl = await require("https://cdn.jsdelivr.net/npm/maplibre-gl@2.4.0/dist/maplibre-gl.min.js")
 
 map = {
-  const container = html`<div style="height: 680px; width: 100%"></div>`;
+  const container = html` <div style="width: 100%; display: flex;">
+    <div id="map-container" style="flex: 2; height: 680px;"></div>
+  </div>`;
   yield container;
 
   const map = new maplibregl.Map({
-    container: container,
+    container: container.querySelector("#map-container"),
     style: 'https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json',
     zoom: 11
   });
@@ -202,6 +205,18 @@ map = {
       </div>
     `;
     
+    // Ajoute un gestionnaire de clic au marqueur
+      el.addEventListener('click', () => {
+        const sidebar = document.getElementById('sidebar-content');
+        sidebar.innerHTML = `
+          <h4 style="margin-top: 0;">${m.title}</h4>
+          <img src="${m.image}" alt="${m.title}" style="width: 100%; border-radius: 10px; margin: 10px 0;">
+          <p>${m.description}</p>
+          ${m.arrivee ? `<p><strong>${m.arrivee}</strong></p>` : ''}
+          ${m.depart ? `<p><strong>${m.depart}</strong></p>` : ''}
+        `;
+      });
+    
       
       // ✅ Ajoute le marqueur avec la popup
       new maplibregl.Marker({ element: el })
@@ -209,6 +224,37 @@ map = {
         .setPopup(new maplibregl.Popup({ offset: 25, closeButton: false }).setHTML(popupContent))
         .addTo(map);
           }
+          
+          // 🔗 Chemin entre les points
+      const routeCoordinates = markersData.map(m => m.coords);
+      
+      map.addSource('itinerary', {
+        type: 'geojson',
+        data: {
+          type: 'Feature',
+          geometry: {
+            type: 'LineString',
+            coordinates: routeCoordinates
+          }
+        }
+      });
+      
+      map.addLayer({
+        id: 'itinerary-line',
+        type: 'line',
+        source: 'itinerary',
+        layout: {
+          'line-join': 'round',
+          'line-cap': 'round'
+        },
+        paint: {
+          'line-color': '#ff6600',
+          'line-width': 4,
+          'line-opacity': 0.8,
+          'line-dasharray': [2, 4]
+        }
+      });
+
 
   });
 
@@ -220,20 +266,18 @@ map = {
 
 ```
 
-#  {.sidebar}
+#  {.sidebar column-width="40%"}
 
 ```{=html}
-<div style="color:#dc7633; text-align:inherit !important; font-size:1.3em; font-weight:bold; font-family: calibri;margin-bottom:10%;">
- Nombre de personnes occupant des bâtiments (logements et activités) de plain-pied fortement inondables (plus de 1,5 m d’eau) 
- </div>
-
-<div style="text-align:inherit !important; font-size:1.1em; font-family: calibri;margin-bottom:10%;"> Le niveau des eaux peut monter relativement vite pour piéger des personnes dans des locaux ne disposant pas d’un accès vers un étage refuge. Dans les locaux où la hauteur d’eau peut être importante (supérieure à 1,5m), cela représente un danger. </div>
-
-
-<a href=https://fiches.eptb-vienne.fr/ind_12a.pdf target=_blank><i class="fa fa-exclamation-circle"></i> Télécharger la fiche indicateur et la carte</a> 
-
-
+<div id="sidebar" style=""width: 40%; top: 20px; right: 20px; width: 300px; background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); z-index: 1000; font-family: sans-serif;">
 <div style="width: auto; padding:5px; border: 1px solid #A0A0A0; border-radius:15px; text-align: center !important; background: #F2F2F2; font-size:1.1em;margin-top:10%;">
-La zone inondable correspond à l'aléa centennal construit à partir des données disponibles et notamment réglementaires mais en aucun cas ne se substitue aux documents réglementaires en vigueur.
+Cette carte permet de visualiser les étapes de notre périple mais aussi d'avoir les informations relatives à nos visistes. 
 </div>
+
+
+  <div id="sidebar-content" style="color:#dc7633; text-align:inherit !important; font-size:1.3em; font-weight:bold; font-family: calibri;margin-bottom:10%;margin-top:20px;">
+    Cliquez sur un marqueur pour voir les infos ici.
+  </div>
+</div>
+
 ```

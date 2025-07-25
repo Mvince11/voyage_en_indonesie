@@ -74,3 +74,7 @@ $web-font-path: false;  // disable Google Fonts
   box-shadow: rgba(101, 147, 220, 0.2) 0px 4px 8px 0px;
   opacity: 1;
 }
+
+.quarto-dashboard .sidebar-right .sidebar {
+  padding-left: 1em !important;
+}
