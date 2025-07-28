@@ -28,6 +28,8 @@ include-in-header:
 
 # Cartographie
 
+## Column {width="80%"}
+
 ```{ojs}
 //| echo: false
 //| padding: 0px
@@ -37,7 +39,7 @@ maplibregl = await require("https://cdn.jsdelivr.net/npm/maplibre-gl@2.4.0/dist/
 
 map = {
   const container = html` <div style="width: 100%; display: flex;">
-    <div id="map-container" style="flex: 2; height: 672px;"></div>
+    <div id="map-container" style="flex: 2; height: 678px;"></div>
   </div>`;
   yield container;
 
@@ -168,10 +170,14 @@ map = {
         description: 'Ville universitaire entourée de volcans.',
         arrivee: 'Arrivée le 28/06/2025',
         depart: 'Départ le 30/06/2025',
-        commentaire:"Avant d'arriver à CGK (aéroport de Jakarta), escale à Singapour. 13h de vol après un réveil     matinal pour rallier Toulouse à Barcelone. A peine arrivée à Jakarta, départ pour Bandung en mini van équipé d'un karaoké que l'on n'a pas utilisé durant le trajet. Tout le monde dort.",
-        photo1:  'images/jakarta_01.jpg',
-        photo2:  'images/jakarta_02.jpg',
-        photo3:  'images/jakarta_03.jpg'
+        commentaire:"Après une bonne nuit de sommeil, départ pour le Kawah puthi et son cratère d'acide. Impressionnant et piquant. Sur la route, de belle plantation de thé et des cultures de fraises. L'après-midi un autre volcan. Le Rengganis et ses sources d'eau chaude. Pour y accèder, traversée sur un pont suspendu qui a donné des sueurs froides à certains ! A Rengganis cette fois-ci, forte odeur de soufre. Retour de nuit et dans les bouchons. Comme à l'aller d'ailleurs. Difficile de se frayer un chemin entre les scooters et les voitures. ",
+        photo1:  'images/lac_acide_01.jpg',
+        photo2:  'images/pont_lac_acide.jpg',
+        photo3:  'images/champs_the_01.jpg',
+        photo4:  'images/champs_the_02.jpg',
+        photo5:  'images/champs_the_03.jpg',
+        photo6:  'images/eau_chaude_01.jpg',
+        photo7:  'images/eau_chaude_02.jpg'
       },
       {
         coords: [110.3695, -7.7956], // Yogyakarta
@@ -218,20 +224,34 @@ map = {
       </div>
     `;
     
-    // Ajoute un gestionnaire de clic au marqueur
-      el.addEventListener('click', () => {
-        const sidebar = document.getElementById('sidebar-first');
-        sidebar.innerHTML = `
-          <h4 style="margin-top: 0;">${m.title}</h4>
-          <img src="${m.photo1}" alt="${m.title}" style="width: 100%; border-radius: 10px; margin: 10px 0;">
-          <p>${m.description}</p>
-          ${m.arrivee ? `<p><strong>${m.arrivee}</strong></p>` : ''}
-          ${m.depart ? `<p><strong>${m.depart}</strong></p>` : ''}
-          ${m.commentaire ? `<p style="margin-top: 15px; font-style: italic; color: #555;">📝 ${m.commentaire}</p>` : ''}
-          <img src="${m.photo2}" alt="${m.title}" style="width: 100%; border-radius: 10px; margin: 10px 0;">
-          <img src="${m.photo3}" alt="${m.title}" style="width: 100%; border-radius: 10px; margin: 10px 0;">
-        `;
-      });
+    el.addEventListener('click', () => {
+  const sidebar = document.getElementById('sidebar-first');
+
+  // Affiche photo1 séparément
+  const photo1Html = m.photo1 ? `<img src="${m.photo1}" alt="${m.title}" class="zoom-photo" style="width: 100%; border-radius: 10px; margin: 10px 0;">` : '';
+
+  // Génère dynamiquement les autres photos (photo2 à photo10)
+  let otherPhotosHtml = '';
+  for (let i = 2; i <= 10; i++) {
+    const photoKey = `photo${i}`;
+    if (m[photoKey]) {
+      otherPhotosHtml += `<img src="${m[photoKey]}" alt="photo ${i}" class="zoom-photo" style="width: 100%; border-radius: 10px; margin: 10px 0;">`;
+    }
+  }
+
+  // Affiche les infos dans la sidebar
+  sidebar.innerHTML = `
+    <h4 style="margin-top: 0;">${m.title}</h4>
+    ${photo1Html}
+    <p>${m.description}</p>
+    ${m.arrivee ? `<p><strong>${m.arrivee}</strong></p>` : ''}
+    ${m.depart ? `<p><strong>${m.depart}</strong></p>` : ''}
+    ${m.commentaire ? `<p style="margin-top: 15px; font-style: italic; color: #555;">📝 ${m.commentaire}</p>` : ''}
+    ${otherPhotosHtml}
+  `;
+});
+
+
     
       
       // ✅ Ajoute le marqueur avec la popup
@@ -282,7 +302,8 @@ map = {
 
 ```
 
-#  {.sidebar}
+## Column {width="20%" .sidebar}
+
 
 ```{=html}
 <div id="sidebar-first" style="width: 100%; margin-top: 20px; right: 20px; background: #b1c6dd; padding: 15px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); z-index: 1000; font-family: sans-serif;">
@@ -292,9 +313,12 @@ Cette carte permet de visualiser les étapes de notre périple mais aussi d'avoi
 </div>
 
 
-  <div id="sidebar-content" style="color:#dc7633; text-align:inherit !important; font-size:1.3em; font-weight:bold; font-family: calibri;margin-bottom:10%;margin-top:20px;">
+  <div id="sidebar-content" style="color:#dc7633; text-align:center; font-size:1.3em; font-weight:bold; font-family: calibri;margin-bottom:10%;margin-top:20px;">
     Cliquez sur un marqueur pour voir les infos ici.
   </div>
 </div>
 </div>
 ```
+
+
+
