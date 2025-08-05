@@ -186,7 +186,7 @@ map = {
         description: "La ville est connue comme centre de l'art classique javanais et de la culture traditionnelle.",
         arrivee: 'Arrivée le 30/06/2025',
         depart: 'Départ le 03/07/2025',
-        commentaire:"Avant d'arriver à CGK (aéroport de Jakarta), escale à Singapour. 13h de vol après un réveil     matinal pour rallier Toulouse à Barcelone. A peine arrivée à Jakarta, départ pour Bandung en mini van équipé d'un karaoké que l'on n'a pas utilisé durant le trajet. Tout le monde dort.",
+        commentaire:"Aujourd'hui direction Yogyakarta, 7h de train mais le temps passe vite. Les paysages sont magnifiques et le train très confortable. Arrivée dans notre villa pour 3 jours. Maison immense, avec une piscine qui a eu du succès pour les plus jeunes. Petite balade avenue Malioboro où l'effervescence régne mais ambiance très différente de Bandung. Les filles ont du succès, de vraies VIP : on les prends en photo. Pas de problème pour trouver à manger avec tous les vendeurs ambulants. Dépaysement garanti !",
         photo1:  'images/jakarta_01.jpg',
         photo2:  'images/jakarta_02.jpg',
         photo3:  'images/jakarta_03.jpg'

@@ -17,6 +17,7 @@ website:
         text: Cartes
       - text: Photos
         icon: camera
+        href: photos.qmd
   page-footer:
     left: "Site créé avec [Quarto](https://quarto.org/)"
     #center: "©CEREMA"

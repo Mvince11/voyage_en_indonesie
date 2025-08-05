@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>index</title>
+<title>photos</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -88,7 +88,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> <i class="bi bi-house" role="img">
+    <a class="nav-link" href="./index.html"> <i class="bi bi-house" role="img">
 </i> 
 <span class="menu-text">Accueil</span></a>
   </li>  
@@ -98,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Cartes</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./photos.html"> <i class="bi bi-camera" role="img">
+    <a class="nav-link active" href="./photos.html" aria-current="page"> <i class="bi bi-camera" role="img">
 </i> 
 <span class="menu-text">Photos</span></a>
   </li>  
@@ -122,25 +122,60 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<!-- Dans le <head> -->
-<p><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"></p>
-<!-- Avant la balise </body> -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<section id="départ" class="level2">
+<h2 class="anchored" data-anchor-id="départ">Départ</h2>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+<style>
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+.gallery-container a {
+  display: block;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+.gallery-container img {
+  width: 100%;
+  height: 180px; /* fixe la hauteur */
+  object-fit: cover; /* garde le cadrage sans déformer */
+  display: block;
+  transition: transform 0.3s ease;
+}
+.gallery-container a:hover img {
+  transform: scale(1.05);
+}
+</style>
+
+<div class="gallery-container">
+  <a href="https://mvince11.synology.me/photos/IMG_20250627_033909.jpg" class="glightbox" data-gallery="syno">
+    <img src="https://mvince11.synology.me/photos/IMG_20250627_033909.jpg" alt="Photo 1">
+  </a>
+  <a href="https://mvince11.synology.me/photos/IMG_20250627_033913.jpg" class="glightbox" data-gallery="syno">
+    <img src="https://mvince11.synology.me/photos/IMG_20250627_033913.jpg" alt="Photo 2">
+  </a>
+  <a href="https://mvince11.synology.me/photos/IMG_20250627_034325.jpg" class="glightbox" data-gallery="syno">
+    <img src="https://mvince11.synology.me/photos/IMG_20250627_034325.jpg" alt="Photo 3">
+  </a>
+  <a href="https://mvince11.synology.me/photos/IMG_20250627_034342.jpg" class="glightbox" data-gallery="syno">
+    <img src="https://mvince11.synology.me/photos/IMG_20250627_034342.jpg" alt="Photo 4">
+  </a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 <script>
-  AOS.init();
+  const lightbox = GLightbox({
+    selector: '.glightbox'
+  });
 </script>
-<div data-aos="fade-right" data-aos-offset="100" data-aos-easing="ease-in-sine" data-aos-duration="1000" data-aos-delay="300" style="margin-left:10%; margin-right:10%; display:flex; justify-content:center;">
-<p><img src="images/IMG-index_1.jpg" id="img_group_1"></p>
-</div>
-<div data-aos="fade-right" data-aos-offset="100" data-aos-easing="ease-in-sine" data-aos-duration="1000" data-aos-delay="300" style="margin-left:10%; margin-right:10%; display:flex; justify-content:left; font-size:1.4em; color:brown;font-family: Oswald,sans-serif;">
-<p>Indonésie | Itinéraire de 3 semaines entre Java, Bali, Nusa Lembagan et Nusa Ceningan</p>
-</div>
-<hr style="margin-left:10%; margin-right:10%;">
-<div data-aos="fade-left" data-aos-offset="100" data-aos-easing="ease-in-sine" data-aos-duration="1000" data-aos-delay="300" style="margin-left:10%; margin-right:10%;font-family: Merriweather,serif;font-size:1.1em;color:#404040;">
-<p>L’Indonésie est un pays transcontinental situé principalement en Asie du Sud-Est, avec certaines parties de son territoire s’étendant en Océanie. Avec 17 000 îles, dont 922 habitées, il s’agit du plus grand archipel au monde. Dotée d’une population estimée à 285 millions de personnes, composée de plus de 600 groupes ethniques et parlant plus de 700 langues régionales, c’est le quatrième pays le plus peuplé au monde et le premier pays à majorité musulmane pour le nombre de croyants. Java, l’île la plus peuplée du monde, abrite plus de la moitié de la population du pays. L’Indonésie est une république dont la capitale est Jakarta. Une nouvelle capitale, nommée Nusantara, est en cours de développement pour la remplacer. <br> <br> Voilà deux ans que nous souhaitions partir en Indonésie. 2 familles, 8 personnes. C’est chose faite.</p>
-</div>
 
 
+
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

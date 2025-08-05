@@ -79,7 +79,11 @@ $web-font-path: false;  // disable Google Fonts
   padding-left: 1em !important;
 }
 
-.zoom-photo {
+.callout.no-callout-title .callout-title {
+  display: none;
+}
+
+/*.zoom-photo {
     width: 100%;
     border-radius: 10px;
     margin: 10px 0;
@@ -90,7 +94,7 @@ $web-font-path: false;  // disable Google Fonts
   .zoom-photo:hover {
     transform: scale(1.2);
     z-index: 10;
-  }
+  }*/
 /*.quarto-dashboard .bslib-sidebar-layout > div.main {
   width: 95%;
 }*/
