@@ -7,7 +7,7 @@ format:
     sidebar: false
 ---
 
-## Départ
+## 27-06-2025 Départ vers Barcelone
 
 ```{=html}
 
@@ -38,17 +38,64 @@ format:
 </style>
 
 <div class="gallery-container">
-  <a href="https://mvince11.synology.me/photos/IMG_20250627_033909.jpg" class="glightbox" data-gallery="syno">
+  <a href="https://mvince11.synology.me/photos/IMG_20250627_033909.jpg" class="glightbox" data-gallery="barcelone">
     <img src="https://mvince11.synology.me/photos/IMG_20250627_033909.jpg" alt="Photo 1">
   </a>
-  <a href="https://mvince11.synology.me/photos/IMG_20250627_033913.jpg" class="glightbox" data-gallery="syno">
+  <a href="https://mvince11.synology.me/photos/IMG_20250627_033913.jpg" class="glightbox" data-gallery="barcelone">
     <img src="https://mvince11.synology.me/photos/IMG_20250627_033913.jpg" alt="Photo 2">
   </a>
-  <a href="https://mvince11.synology.me/photos/IMG_20250627_034325.jpg" class="glightbox" data-gallery="syno">
+  <a href="https://mvince11.synology.me/photos/IMG_20250627_034325.jpg" class="glightbox" data-gallery="barcelone">
     <img src="https://mvince11.synology.me/photos/IMG_20250627_034325.jpg" alt="Photo 3">
   </a>
-  <a href="https://mvince11.synology.me/photos/IMG_20250627_034342.jpg" class="glightbox" data-gallery="syno">
+  <a href="https://mvince11.synology.me/photos/IMG_20250627_034342.jpg" class="glightbox" data-gallery="barcelone">
     <img src="https://mvince11.synology.me/photos/IMG_20250627_034342.jpg" alt="Photo 4">
+  </a>
+</div>
+
+```
+
+## 27-06-2025 Aéroport de Barcelone
+
+```{=html}
+
+<div class="gallery-container">
+  <a href="https://mvince11.synology.me/photos/IMG_20250627_085331.jpg" class="glightbox" data-gallery="aeroport_barça">
+    <img src="https://mvince11.synology.me/photos/IMG_20250627_085331.jpg" alt="Photo 5">
+  </a>
+  <a href="https://mvince11.synology.me/photos/IMG_20250627_085411.jpg" class="glightbox" data-gallery="aeroport_barça">
+    <img src="https://mvince11.synology.me/photos/IMG_20250627_085411.jpg" alt="Photo 6">
+  </a>
+  <a href="https://mvince11.synology.me/photos/IMG_20250627_085411.jpg" class="glightbox" data-gallery="aeroport_barça">
+    <img src="https://mvince11.synology.me/photos/IMG_20250627_085411.jpg" alt="Photo 7">
+  </a>
+  <a href="https://mvince11.synology.me/photos/IMG_20250627_090004.jpg" class="glightbox" data-gallery="aeroport_barça">
+    <img src="https://mvince11.synology.me/photos/IMG_20250627_090004.jpg" alt="Photo 8">
+  </a>
+  <a href="https://mvince11.synology.me/photos/IMG_20250627_102050.jpg" class="glightbox" data-gallery="aeroport_barça">
+    <img src="https://mvince11.synology.me/photos/IMG_20250627_102050.jpg" alt="Photo 9">
+  </a>
+</div>
+```
+
+## 28-06-2025 Transit à l'aéroport de Singapour
+
+```{=html}
+
+<div class="gallery-container">
+  <a href="https://mvince11.synology.me/photos/IMG_20250628_072527.jpg" class="glightbox" data-gallery="aeroport_singa">
+    <img src="https://mvince11.synology.me/photos/IMG_20250628_072527.jpg" alt="Photo 10">
+  </a>
+  <a href="https://mvince11.synology.me/photos/IMG_20250628_072606.jpg" class="glightbox" data-gallery="aeroport_singa">
+    <img src="https://mvince11.synology.me/photos/IMG_20250628_072606.jpg" alt="Photo 11">
+  </a>
+  <a href="https://mvince11.synology.me/photos/IMG_20250628_072617.jpg" class="glightbox" data-gallery="aeroport_singa">
+    <img src="https://mvince11.synology.me/photos/IMG_20250628_072617.jpg" alt="Photo 12">
+  </a>
+  <a href="https://mvince11.synology.me/photos/IMG_20250628_075647.jpg" class="glightbox" data-gallery="aeroport_singa">
+    <img src="https://mvince11.synology.me/photos/IMG_20250628_075647.jpg" alt="Photo 13">
+  </a>
+  <a href="https://mvince11.synology.me/photos/IMG_20250628_075658.jpg" class="glightbox" data-gallery="aeroport_singa">
+    <img src="https://mvince11.synology.me/photos/IMG_20250628_075658.jpg" alt="Photo 14">
   </a>
 </div>
 
@@ -61,3 +108,33 @@ format:
 
 ```
 
+## 29-06-2025 Java occidental - Bandung, Jawa
+
+```{=html}
+<div class="gallery-container" id="photo-gallery"></div>
+
+<script>
+fetch('https://mvince11.synology.me/photos/gallery.php')
+  .then(res => res.json())
+  .then(data => {
+    const container = document.getElementById('photo-gallery');
+    data.forEach(photo => {
+      const a = document.createElement('a');
+      a.href = photo.full;
+      a.className = 'glightbox';
+      a.setAttribute('data-gallery', 'syno');
+
+      const img = document.createElement('img');
+      img.src = photo.thumb;
+      img.alt = 'Photo';
+      img.loading = 'lazy';
+
+      a.appendChild(img);
+      container.appendChild(a);
+    });
+
+    GLightbox({ selector: '.glightbox' });
+  });
+</script>
+
+```
